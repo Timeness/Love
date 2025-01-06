@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cool Solana Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Solana Token Icon */
+      .token-branded--solana {
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        position: absolute;
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none'%3E%3Cpath fill='url(%23tokenBrandedSolana0)' d='M19.125 7.447a.7.7 0 0 1-.456.18H2.644c-.569 0-.856-.65-.462-1.03l2.632-2.538a.67.67 0 0 1 .455-.188h16.088c.574 0 .855.656.456 1.038z'/%3E%3Cpath fill='url(%23tokenBrandedSolana1)' d='M19.125 19.954a.7.7 0 0 1-.456.175H2.644c-.569 0-.856-.645-.462-1.026l2.632-2.544a.66.66 0 0 1 .455-.181h16.088c.574 0 .855.65.456 1.03z'/%3E%3Cpath fill='url(%23tokenBrandedSolana2)' d='M19.125 10.303a.7.7 0 0 0-.456-.175H2.644c-.569 0-.856.645-.462 1.025l2.632 2.545a.7.7 0 0 0 .455.18h16.088c.574 0 .855-.65.456-1.03z'/%3E%3Cdefs%3E%3ClinearGradient id='tokenBrandedSolana0' x1='2.001' x2='22.51' y1='59.823' y2='59.635' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23599db0'/%3E%3Cstop offset='1' stop-color='%2347f8c3'/%3E%3C/linearGradient%3E%3ClinearGradient id='tokenBrandedSolana1' x1='2.001' x2='22.379' y1='8.853' y2='8.697' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23c44fe2'/%3E%3Cstop offset='1' stop-color='%2373b0d0'/%3E%3C/linearGradient%3E%3ClinearGradient id='tokenBrandedSolana2' x1='3.152' x2='21.225' y1='12.003' y2='12.003' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23778cbf'/%3E%3Cstop offset='1' stop-color='%235dcdc9'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/g%3E%3C/svg%3E");
+      }
+
+      /* Blurred Effect */
+      .blurred {
+        filter: blur(4px);
+        opacity: 0.4;
+      }
+
+      /* Footer */
+      footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 10px;
+        background-color: #000;
+        color: #fff;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        text-shadow: 0 0 8px #00f6ff, 0 0 12px #00f6ff;
+      }
+    </style>
+  </head>
+  <body class="bg-black relative overflow-hidden h-screen">
+    <!-- Icons -->
+    <div class="token-branded--solana" style="top: 10%; left: 15%;"></div>
+    <div class="token-branded--solana blurred" style="top: 30%; left: 50%; width: 64px; height: 64px;"></div>
+    <div class="token-branded--solana" style="top: 50%; left: 75%;"></div>
+    <div class="token-branded--solana blurred" style="top: 70%; left: 25%; width: 72px; height: 72px;"></div>
+    <div class="token-branded--solana" style="top: 85%; left: 50%;"></div>
+
+    <!-- Footer -->
+    <footer>
+      Copyright 2025 Genis Reserved
+    </footer>
+  </body>
+</html>
