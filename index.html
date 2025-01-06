@@ -1,239 +1,183 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Note App</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', sans-serif;
-            background-color: #f5f5f5;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .note-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .note-item {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            cursor: pointer;
-        }
-
-        .note-item:last-child {
-            border-bottom: none;
-        }
-
-        .note-item h3 {
-            margin-top: 0;
-        }
-
-        .new-note-button {
-            display: block;
-            margin: 20px auto;
-            padding: 12px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .new-note-button:hover {
-            background-color: #0056b3;
-        }
-
-        .edit-note-button {
-            display: inline-block;
-            padding: 5px 10px;
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-left: 10px;
-        }
-
-        .edit-note-button:hover {
-            background-color: #218838;
-        }
-
-        .delete-note-button {
-            display: inline-block;
-            padding: 5px 10px;
-            background-color: #dc3545;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-left: 10px;
-        }
-
-        .delete-note-button:hover {
-            background-color: #c82333;
-        }
-
-        .congrats-animation {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: none;
-            animation: bounce 1s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
-        .congrats-message {
-            background-color: #28a745;
-            color: #fff;
-            padding: 10px 15px;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1 class="text-2xl font-bold mb-4">Telegram Note App</h1>
-        <ul class="note-list" id="noteList">
-            </ul>
-        <button class="new-note-button" id="newNoteButton">Add New Note</button ```html
-        <div class="congrats-animation" id="congratsAnimation">
-            <div class="congrats-message">Note added successfully!</div>
-        </div>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script src="https://registry.npmmirror.com/vue/3.3.11/files/dist/vue.global.js">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+   body {
+     font-family: 'Signika', sans-serif;
+   }
+  </style>
+ </head>
+ <body class="bg-black text-white">
+  <div class="p-3" id="app">
+   <div class="bg-gray-950 p-3 rounded-lg">
+    <h2 class="text-md font-semibold mb-3">
+     Channowls
+    </h2>
+    <div class="space-y-3">
+     <div class="flex items-center justify-between bg-gray-900 p-2 rounded-lg">
+      <div class="flex items-center space-x-2">
+       <img alt="TabiZoo Channel Logo" class="w-8 h-8 rounded-full" height="32" src="https://storage.googleapis.com/a1aa/image/BDpQEUeO5ozDYCGIzw36cU3pFqczENuHJmzAolKeMTd1vcCUA.jpg" width="32"/>
+       <div>
+        <p class="text-xs font-medium">
+         Join TabiZoo Channel
+        </p>
+        <p class="text-xs text-gray-400">
+         200 $OWLS + 1
+         <i class="fas fa-feather-alt">
+         </i>
+        </p>
+       </div>
+      </div>
+      <button class="bg-blue-500 text-white px-3 py-1 rounded-lg text-xs">
+       GO
+      </button>
+     </div>
+     <div class="flex items-center justify-between bg-gray-900 p-2 rounded-lg">
+      <div class="flex items-center space-x-2">
+       <img alt="Circle Channel Logo" class="w-8 h-8 rounded-full" height="32" src="https://storage.googleapis.com/a1aa/image/4SeU0wdQAk2rXaZUpBs1poHlku11f1H1qb6qXg0X87IuvcCUA.jpg" width="32"/>
+       <div>
+        <p class="text-xs font-medium">
+         Join Circle Channel
+        </p>
+        <p class="text-xs text-gray-400">
+         200 $OWLS + 1
+         <i class="fas fa-feather-alt">
+         </i>
+        </p>
+       </div>
+      </div>
+      <button class="bg-blue-500 text-white px-3 py-1 rounded-lg text-xs">
+       GO
+      </button>
+     </div>
+     <div class="flex items-center justify-between bg-gray-900 p-2 rounded-lg">
+      <div class="flex items-center space-x-2">
+       <img alt="Obix Channel Logo" class="w-8 h-8 rounded-full" height="32" src="https://storage.googleapis.com/a1aa/image/oJRdheXHOtzyFaeCusntYlfYURedfjfYwX71uR4e1AMR2XOBKA.jpg" width="32"/>
+       <div>
+        <p class="text-xs font-medium">
+         Join Obix Channel
+        </p>
+        <p class="text-xs text-gray-400">
+         200 $OWLS + 1
+         <i class="fas fa-feather-alt">
+         </i>
+        </p>
+       </div>
+      </div>
+      <button class="bg-blue-500 text-white px-3 py-1 rounded-lg text-xs">
+       GO
+      </button>
+     </div>
+     <div class="flex items-center justify-between bg-gray-900 p-2 rounded-lg">
+      <div class="flex items-center space-x-2">
+       <img alt="Starsfi Channel Logo" class="w-8 h-8 rounded-full" height="32" src="https://storage.googleapis.com/a1aa/image/CrZKBGaKT04kJ1pof62vey8moesebZMvtK2EvbfQZL0BeLnAF.jpg" width="32"/>
+       <div>
+        <p class="text-xs font-medium">
+         Join Starsfi Channel
+        </p>
+        <p class="text-xs text-gray-400">
+         200 $OWLS + 1
+         <i class="fas fa-feather-alt">
+         </i>
+        </p>
+       </div>
+      </div>
+      <button class="bg-blue-500 text-white px-3 py-1 rounded-lg text-xs">
+       GO
+      </button>
+     </div>
+     <div class="flex items-center justify-between bg-gray-900 p-2 rounded-lg">
+      <div class="flex items-center space-x-2">
+       <img alt="OKX Racer Tweet Logo" class="w-8 h-8 rounded-full" height="32" src="https://storage.googleapis.com/a1aa/image/fTYNK9QU3kVaOSweweJ3EOAI5X99cfGKecvWLRBzzCNTeLnAF.jpg" width="32"/>
+       <div>
+        <p class="text-xs font-medium">
+         Retweet OKX Racer Tweet
+        </p>
+        <p class="text-xs text-gray-400">
+         200 $OWLS + 1
+         <i class="fas fa-feather-alt">
+         </i>
+        </p>
+       </div>
+      </div>
+      <button class="bg-blue-500 text-white px-3 py-1 rounded-lg text-xs">
+       GO
+      </button>
+     </div>
+     <div class="flex items-center justify-between bg-gray-900 p-2 rounded-lg">
+      <div class="flex items-center space-x-2">
+       <img alt="OKX Racer Channel Logo" class="w-8 h-8 rounded-full" height="32" src="https://storage.googleapis.com/a1aa/image/SPmZefCAX9kCN0MSYGplgupetHDzMalE2cLNjOnYePiNflTgC.jpg" width="32"/>
+       <div>
+        <p class="text-xs font-medium">
+         Join OKX Racer Channel
+        </p>
+        <p class="text-xs text-gray-400">
+         200 $OWLS + 1
+         <i class="fas fa-feather-alt">
+         </i>
+        </p>
+       </div>
+      </div>
+      <button class="bg-blue-500 text-white px-3 py-1 rounded-lg text-xs">
+       GO
+      </button>
+     </div>
     </div>
-
-    <script>
-        // Initialize Telegram Web App
-        Telegram.WebApp.ready();
-
-        // Get the user's ID
-        const userId = Telegram.WebApp.initDataUnsafe.user.id;
-
-        // Get the note list element
-        const noteList = document.getElementById('noteList');
-
-        // Get the new note button element
-        const newNoteButton = document.getElementById('newNoteButton');
-
-        // Get the congrats animation element
-        const congratsAnimation = document.getElementById('congratsAnimation');
-
-        // Function to get notes from Telegram Cloud Storage
-        async function getNotes() {
-            try {
-                const notes = await Telegram.WebApp.storage.get('notes');
-                return notes || [];
-            } catch (error) {
-                console.error(error);
-                return [];
-            }
-        }
-
-        // Function to save notes to Telegram Cloud Storage
-        async function saveNotes(notes) {
-            try {
-                await Telegram.WebApp.storage.set('notes', notes);
-            } catch (error) {
-                console.error(error);
-            }
-        }
-
-        // Function to add a new note
-        async function addNote() {
-            const note = prompt('Enter your note:');
-            if (note) {
-                const notes = await getNotes();
-                notes.push({ text: note, id: Date.now() });
-                await saveNotes(notes);
-                renderNotes();
-                showCongratsAnimation();
-            }
-        }
-
-        // Function to render notes
-        async function renderNotes() {
-            const notes = await getNotes();
-            noteList.innerHTML = '';
-            notes.forEach((note) => {
-                const noteItem = document.createElement('li');
-                noteItem.classList.add('note-item');
-                noteItem.innerHTML = `
-                    <h3>${note.text}</h3>
-                    <button class="edit-note-button" data-id="${note.id}">Edit</button>
-                    <button class="delete-note-button" data-id="${note.id}">Delete</button>
-                `;
-                noteList.appendChild(noteItem);
-            });
-        }
-
-        // Function to show congrats animation
-        function showCongratsAnimation() {
-            congratsAnimation.style.display = 'block';
-            setTimeout(() => {
-                congratsAnimation.style.display = 'none';
-            }, 2000);
-        }
-        newNoteButton.addEventListener('click', addNote);
-        // Add event listener to note list
-        noteList.addEventListener('click', (event) => {
-            if (event.target.classList.contains('edit-note-button')) {
-                const noteId = event.target.dataset.id;
-                const note = prompt('Enter your note:');
-                if (note) {
-                    const notes = getNotes();
-                    const index = notes.findIndex((note) => note.id === parseInt(noteId));
-                    if (index !== -1) {
-                        notes[index].text = note;
-                        saveNotes(notes);
-                        renderNotes();
-                    }
-                }
-                // Add haptic feedback after editing a note
-                if (navigator.vibrate) {
-                    navigator.vibrate(50);
-                }
-            } else if (event.target.classList.contains('delete-note-button')) {
-                const noteId = event.target.dataset.id;
-                const notes = getNotes();
-                const index = notes.findIndex((note) => note.id === parseInt(noteId));
-                if (index !== -1) {
-                    notes.splice(index, 1);
-                    saveNotes(notes);
-                    renderNotes();
-                }
-                // Add haptic feedback after deleting a note
-                if (navigator.vibrate) {
-                    navigator.vibrate(50);
-                }
-            }
-        });
-        renderNotes();
-    </script>
-</body>
-</html>
+   </div>
+   <div class="bg-gray-950 p-3 rounded-lg mt-3">
+    <h2 class="text-md font-semibold mb-3">
+     Owl Rewards (Initial)
+    </h2>
+    <div class="space-y-3">
+     <div class="flex items-center space-x-2">
+      <i class="fas fa-seedling text-green-500 text-xl">
+      </i>
+      <div>
+       <p class="text-xs font-medium">
+        Telegram Age
+       </p>
+       <p class="text-xs text-gray-400">
+        581 $OWLS
+       </p>
+      </div>
+     </div>
+     <div class="flex items-center space-x-2">
+      <i class="fas fa-robot text-red-500 text-xl">
+      </i>
+      <div>
+       <p class="text-xs font-medium">
+        Account Activity
+       </p>
+       <p class="text-xs text-gray-400">
+        581 $OWLS
+       </p>
+      </div>
+     </div>
+     <div class="flex items-center space-x-2">
+      <i class="fas fa-star text-yellow-500 text-xl">
+      </i>
+      <div>
+       <p class="text-xs font-medium">
+        Telegram Premium
+       </p>
+       <p class="text-xs text-gray-400">
+        1,000 $OWLS
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+   const { createApp } = Vue;
+    createApp({}).mount('#app');
+  </script>
+ </body>
+</html>    
