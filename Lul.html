@@ -22,41 +22,43 @@
   </style>
 </head>
 <body>
-  <div id="app" class="flex flex-col items-center min-h-screen text-white">
-    <div class="text-center mb-6">
+  <div id="app" class="text-white">
+    <div class="text-center py-6">
       <h1 class="text-2xl font-bold">FRIENDS</h1>
       <p class="text-gray-400 text-sm">Invite your friends! Earn more coins</p>
     </div>
-    <div class="bg-gray-800 p-6 rounded-lg mb-4 w-11/12 md:w-1/2">
-      <h2 class="text-orange-500 text-base font-bold mb-4">HOW IT WORKS</h2>
-      <div class="flex items-center mb-3">
-        <i class="fas fa-upload text-orange-500 text-xl mr-4"></i>
-        <p class="text-sm">Share your invitation link</p>
-      </div>
-      <div class="flex items-center mb-3">
-        <i class="fas fa-link text-orange-500 text-xl mr-4"></i>
-        <p class="text-sm">Your friend join HS Minigame and you both earn 2000 coins</p>
-      </div>
-      <div class="flex items-center">
-        <i class="fas fa-user-friends text-orange-500 text-xl mr-3"></i>
-        <div>
-          <p class="text-sm">Score 10% from buddies</p>
-          <p class="text-gray-400 text-xs">Plus an extra 2.5% their referrals</p>
+    <div class="flex flex-col items-center justify-start min-h-screen">
+      <div class="bg-gray-800 p-6 rounded-lg mb-4 w-11/12 md:w-1/2">
+        <h2 class="text-orange-500 text-base font-bold mb-4">HOW IT WORKS</h2>
+        <div class="flex items-center mb-3">
+          <i class="fas fa-upload text-orange-500 text-xl mr-4"></i>
+          <p class="text-sm">Share your invitation link</p>
+        </div>
+        <div class="flex items-center mb-3">
+          <i class="fas fa-link text-orange-500 text-xl mr-4"></i>
+          <p class="text-sm">Your friend joins HS Minigame and you both earn 2000 coins</p>
+        </div>
+        <div class="flex items-center">
+          <i class="fas fa-user-friends text-orange-500 text-xl mr-3"></i>
+          <div>
+            <p class="text-sm">Score 10% from buddies</p>
+            <p class="text-gray-400 text-xs">Plus an extra 2.5% from their referrals</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="bg-gray-800 p-4 rounded-lg mb-8 w-11/12 md:w-1/2 flex justify-between items-center">
-      <div class="flex items-center">
-        <i class="fas fa-user-friends text-orange-500 text-xl mr-4"></i>
-        <p class="text-sm">0 INVITED FRIENDS</p>
+      <div class="bg-gray-800 p-4 rounded-lg mb-8 w-11/12 md:w-1/2 flex justify-between items-center">
+        <div class="flex items-center">
+          <i class="fas fa-user-friends text-orange-500 text-xl mr-4"></i>
+          <p class="text-sm">0 INVITED FRIENDS</p>
+        </div>
+        <div class="flex items-center">
+          <p class="mr-2 text-sm">+0</p>
+          <i class="fas fa-coins text-orange-500 text-xl"></i>
+        </div>
       </div>
-      <div class="flex items-center">
-        <p class="mr-2 text-sm">+0</p>
-        <i class="fas fa-coins text-orange-500 text-xl"></i>
-      </div>
+      <button class="button-custom text-white py-3 px-6 mb-4 w-11/12 md:w-1/2 text-base font-bold" @click="redirectToLink">INVITE YOUR FRIENDS</button>
+      <button class="button-custom text-white py-3 px-6 w-11/12 md:w-1/2 text-base font-bold" @click="copyLink">COPY LINK</button>
     </div>
-    <button class="button-custom text-white py-3 px-6 mb-4 w-11/12 md:w-1/2 text-base font-bold" @click="redirectToLink">INVITE YOUR FRIENDS</button>
-    <button class="button-custom text-white py-3 px-6 w-11/12 md:w-1/2 text-base font-bold" @click="copyLink">COPY LINK</button>
   </div>
   <script>
     const { createApp } = Vue;
