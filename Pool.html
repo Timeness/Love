@@ -1,0 +1,42 @@
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Build Your Mining Pool and earn crypto with your friends.">
+  <meta name="keywords" content="crypto, mining pool, earn crypto, bitcoin">
+  <meta name="author" content="Your Name">
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+   body {
+      font-family: 'Exo 2', sans-serif;
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script src="https://registry.npmmirror.com/vue/3.3.11/files/dist/vue.global.js">
+  </script>
+ </head>
+ <body class="bg-black text-white">
+  <div class="flex flex-col items-center justify-center min-h-screen p-4" id="app">
+   <img alt="A large glowing Bitcoin symbol surrounded by people" class="w-full max-w-md" height="400" src="https://storage.googleapis.com/a1aa/image/3xImfR5p880bYKkEqcj92Wlu5IDYEMRsvs1wUm01D9hY8SBKA.jpg" width="600"/>
+   <div class="text-center mt-6">
+    <h1 class="text-xl font-bold">
+     Build Your Mining Pool
+    </h1>
+    <p class="mt-4 text-xs leading-relaxed text-gray-400">
+     Earn 10% of all crypto mined by your friends. The more friends you have, the more crypto you earn. A larger mining pool means less work for you—your friends mine on your behalf. Invite as many active friends as you can to grow your pool.
+    </p>
+   </div>
+   <button class="mt-8 w-full max-w-md px-16 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-lg text-lg font-semibold">
+    Next
+   </button>
+  </div>
+  <script>
+   const { createApp } = Vue;
+    createApp({}).mount('#app');
+  </script>
+ </body>
+</html>
