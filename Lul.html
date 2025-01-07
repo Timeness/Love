@@ -1,40 +1,76 @@
 <html>
- <head>
+<head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Choose your default browser">
-  <meta name="keywords" content="browser, default, choose, web, internet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="description" content="Invite your friends and earn more coins by sharing your invitation link.">
+  <meta name="keywords" content="friends, invite, earn coins, referral program">
   <meta name="author" content="Your Name">
+  <title>Invite Friends</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://registry.npmmirror.com/vue/3.3.11/files/dist/vue.global.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
+      background-color: #1a1a1a;
       font-family: 'Signika', sans-serif;
     }
-    img {
-      pointer-events: none;
-      user-select: none;
+    .button-custom {
+      background-color: #ff7043;
+      border-radius: 8px;
     }
   </style>
- </head>
- <body class="bg-black text-white">
-  <div class="flex flex-col items-center justify-center min-h-screen" id="app">
-   <div class="text-lg mb-4 self-start ml-4">
-    Choose your default browser
-   </div>
-   <div class="flex space-x-4">
-    <img alt="Chrome browser icon" class="w-10 h-10" height="40" src="https://i.ibb.co/xHMq3KR/logos-chrome.png" width="40"/>
-    <img alt="Firefox browser icon" class="w-10 h-10" height="40" src="https://i.ibb.co/wYG9rxp/logos-firefox.png" width="40"/>
-    <img alt="Edge browser icon" class="w-10 h-10" height="40" src="https://i.ibb.co/9NQp4sd/logos-microsoft-edge.png" width="40"/>
-    <img alt="Opera browser icon" class="w-10 h-10" height="40" src="https://i.ibb.co/4MCxVsK/devicon-opera.png" width="40"/>
-    <img alt="Tor browser icon" class="w-10 h-10" height="40" src="https://i.ibb.co/mCNcXLr/logos-tor-browser.png" width="40"/>
-    <img alt="Vivaldi browser icon" class="w-10 h-10" height="40" src="https://i.ibb.co/HTVtsjK/logos-vivaldi-icon.png" width="40"/>
-   </div>
+</head>
+<body>
+  <div id="app" class="flex flex-col items-center justify-center min-h-screen text-white">
+    <div class="text-center mb-6">
+      <h1 class="text-2xl font-bold">FRIENDS</h1>
+      <p class="text-gray-400 text-sm">Invite your friends! Earn more coins</p>
+    </div>
+    <div class="bg-gray-800 p-6 rounded-lg mb-4 w-11/12 md:w-1/2">
+      <h2 class="text-orange-500 text-base font-bold mb-4">HOW IT WORKS</h2>
+      <div class="flex items-center mb-3">
+        <i class="fas fa-upload text-orange-500 text-xl mr-4"></i>
+        <p class="text-sm">Share your invitation link</p>
+      </div>
+      <div class="flex items-center mb-3">
+        <i class="fas fa-link text-orange-500 text-xl mr-4"></i>
+        <p class="text-sm">Your friend join HS Minigame and you both earn 2000 coins</p>
+      </div>
+      <div class="flex items-center">
+        <i class="fas fa-user-friends text-orange-500 text-xl mr-4"></i>
+        <div>
+          <p class="text-sm">Score 10% from buddies</p>
+          <p class="text-gray-400 text-xs">Plus an extra 2.5% their referrals</p>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-800 p-4 rounded-lg mb-8 w-11/12 md:w-1/2 flex justify-between items-center">
+      <div class="flex items-center">
+        <i class="fas fa-user-friends text-orange-500 text-xl mr-4"></i>
+        <p class="text-sm">0 INVITED FRIENDS</p>
+      </div>
+      <div class="flex items-center">
+        <p class="mr-2 text-sm">+0</p>
+        <i class="fas fa-coins text-orange-500 text-xl"></i>
+      </div>
+    </div>
+    <button class="button-custom text-white py-3 px-6 mb-4 w-11/12 md:w-1/2 text-base font-bold" @click="redirectToLink">INVITE YOUR FRIENDS</button>
+    <button class="button-custom text-white py-3 px-6 w-11/12 md:w-1/2 text-base font-bold" @click="copyLink">COPY LINK</button>
   </div>
   <script>
-   const { createApp } = Vue;
-    createApp({}).mount('#app');
+    const { createApp } = Vue;
+    createApp({
+      methods: {
+        copyLink() {
+          const link = 'https://t.me/okbye';
+          navigator.clipboard.writeText(link);
+        },
+        redirectToLink() {
+          window.location.href = 'https://t.me/okbye';
+        }
+      }
+    }).mount('#app');
   </script>
- </body>
+</body>
 </html>
