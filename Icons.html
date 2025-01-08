@@ -21,6 +21,9 @@
             vertical-align: -0.125em;
             content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23e8e6f4' d='M14 4h-4C6.229 4 4.343 4 3.172 5.172S2 8.229 2 12s0 5.657 1.172 6.828S6.229 20 10 20h4c3.771 0 5.657 0 6.828-1.172S22 15.771 22 12s0-5.657-1.172-6.828S17.771 4 14 4' opacity='0.5'/%3E%3Cpath fill='%23e8e6f4' d='M13.25 9a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75m1 3a.75.75 0 0 1 .75-.75h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1-.75-.75m1 3a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1-.75-.75M9 11a2 2 0 1 0 0-4a2 2 0 0 0 0 4m0 6c4 0 4-.895 4-2s-1.79-2-4-2s-4 .895-4 2s0 2 4 2'/%3E%3C/svg%3E");
         }
+        .no-underline {
+            text-decoration: none;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -38,6 +41,8 @@
             <p><strong>User Time Zone:</strong> {{ userTimeZone }}</p>
             <p><strong>Server Time (UTC):</strong> {{ serverTime }}</p>
             <p><strong>IP Address:</strong> {{ ipAddress }}</p>
+            <p><strong>IP Based Location:</strong> Latitude {{ ipLatitude }}, Longitude {{ ipLongitude }}</p>
+            <p><strong>IP Based Map:</strong> <a :href="'https://www.google.com/maps/search/' + ipLatitude + ',' + ipLongitude" target="_blank" class="text-blue-500 no-underline">Google Map</a></p>
             <p><strong>Device (With Model):</strong> {{ deviceModel }}</p>
             <p><strong>Device.Processor:</strong> {{ deviceProcessor }}</p>
             <p><strong>Carrier:</strong> {{ carrier }}</p>
@@ -62,9 +67,11 @@
                 const city = ref('Fetching...');
                 const region = ref('Fetching...');
                 const userLocalTime = ref(formatLocalTime(new Date()));
-                const userTimeZone = ref(Intl.DateTimeFormat().resolvedOptions().timeZone);
+                const userTimeZone = ref('Fetching...');
                 const serverTime = ref(new Date().toUTCString());
                 const ipAddress = ref('Fetching...');
+                const ipLatitude = ref('Fetching...');
+                const ipLongitude = ref('Fetching...');
                 const deviceModel = ref('Fetching...');
                 const deviceProcessor = ref('Fetching...');
                 const carrier = ref('Fetching...');
@@ -77,7 +84,7 @@
                 const browser = ref('Fetching...');
 
                 onMounted(() => {
-                    // Fetch IP Address, Country, City, Region, and Carrier
+                    // Fetch IP Address, Country, City, Region, Timezone, and Carrier
                     fetch('https://ipapi.co/json/')
                         .then(response => response.json())
                         .then(data => {
@@ -85,7 +92,10 @@
                             country.value = data.country_name;
                             city.value = data.city;
                             region.value = data.region;
+                            userTimeZone.value = data.timezone;
                             carrier.value = data.org;
+                            ipLatitude.value = data.latitude;
+                            ipLongitude.value = data.longitude;
                         })
                         .catch(error => console.error('Error fetching IP data:', error));
 
@@ -168,6 +178,8 @@
                     userTimeZone,
                     serverTime,
                     ipAddress,
+                    ipLatitude,
+                    ipLongitude,
                     deviceModel,
                     deviceProcessor,
                     carrier,
@@ -181,6 +193,38 @@
                 };
             }
         }).mount('#app');
+
+        // Disable right-click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+        document.addEventListener('keydown', event => {
+            if (event.key === 'F12' || 
+                (event.ctrlKey && event.shiftKey && event.key === 'I') || 
+                (event.ctrlKey && event.shiftKey && event.key === 'J') || 
+                (event.ctrlKey && event.key === 'U')) {
+                event.preventDefault();
+            }
+        });
+
+        // Disable touch hold (long press) on mobile devices
+        document.addEventListener('touchstart', event => {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, { passive: false });
+
+        document.addEventListener('touchend', event => {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, { passive: false });
+
+        document.addEventListener('touchmove', event => {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, { passive: false });
     </script>
 </body>
-  </html>
+</html>
