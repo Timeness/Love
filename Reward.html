@@ -1,0 +1,103 @@
+<html>
+<head>
+    <title>Reward Collected</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="Reward Collection Page">
+    <meta name="keywords" content="reward, collection, points">
+    <meta name="author" content="Your Name">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Signika', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+            flex-direction: column;
+        }
+        .reward-container {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 30%;
+        }
+        .reward-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,0,0,0) 40%, #00ff00 60%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-right: 10px;
+        }
+        .reward-circle-inner {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .reward-circle-inner ion-icon {
+            font-size: 0.8rem;
+            color: #00ff00;
+        }
+        .reward-circle-inner .reward-amount {
+            font-size: 1rem;
+            color: #00ff00;
+        }
+        .reward-text {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="reward-container">
+        <div class="reward-circle">
+            <div class="reward-circle-inner">
+                <ion-icon name="flash"></ion-icon>
+                <div class="reward-amount" id="reward-amount">300</div>
+            </div>
+        </div>
+        <div class="reward-text">Reward Collected</div>
+    </div>
+    <script type="module">
+        import ionicons from 'https://cdn.jsdelivr.net/npm/ionicons/+esm'
+    </script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons/dist/esm/ionicons.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/ionicons/dist/collection/components/icon/icon.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
+    <script>
+        var sf = new Snowflakes({
+            color: "#ffffff",
+            count: 35,
+            speed: 0.4
+        });
+
+        // Function to get query parameter
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Set reward amount from query parameter or default to 300
+        const rewardAmount = getQueryParam('reward') || '100';
+        document.getElementById('reward-amount').textContent = rewardAmount;
+    </script>
+</body>
+</html>
